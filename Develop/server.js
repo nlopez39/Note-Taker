@@ -22,7 +22,7 @@ app.get("/", (req, res) =>
 app.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "public/notes.html"))
 );
-//this get request is to get the notes and read the db.json file and back the parsed JSON data
+//this get request is to get the notes and read the db.json file and send back the parsed JSON data
 app.get("/api/notes", (req, res) => {
   //this just needs to read the db.json file
   fs.readFile(
@@ -46,7 +46,7 @@ app.get("/api/notes", (req, res) => {
       const newNote = {
         title,
         text,
-        note_id: uuid(),
+        id: uuid(),
       };
 
       //obtain the existing notes
